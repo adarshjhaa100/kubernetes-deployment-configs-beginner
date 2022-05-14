@@ -1,8 +1,10 @@
+''' Simple HTTP Server with tornado '''
 import os
 from tornado.web import RequestHandler, Application
 from tornado.ioloop import IOLoop 
 from datetime import datetime
 
+''' Request Handlers '''
 class SimpleRequestHandler(RequestHandler):
     def get(self):
         print(datetime.now())
@@ -14,6 +16,7 @@ class PingRequestHandler(RequestHandler):
         self.write(f" Hello from: {os.uname().nodename} ")
 
 
+''' main body '''
 if __name__=="__main__":
     print("Computer Name :", os.uname() ) # gets computer info
     app =Application([
@@ -24,4 +27,4 @@ if __name__=="__main__":
     port = 8081
     app.listen(port)
     print("listening on :",port)
-    IOLoop.current().start() # start server
+    IOLoop.current().start() # start server forever until a signal is received to quit
