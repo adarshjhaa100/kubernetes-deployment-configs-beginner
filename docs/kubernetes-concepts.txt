@@ -1,0 +1,44 @@
+Minikube: for testing purposes to simulate actual envionment
+Start kubernetes cluster:
+    minikube start
+
+run kubectl:
+    minikube kubectl
+    or add alias kubectl "minikube kubectl --"
+
+Before applying deployment, we need to use minikube docker registry
+point shell to mimikube's docker registry:
+    eval $(minikube docker-env)
+Push to minikube docker
+    docker build -t hello-node:v1 .
+
+
+To access nodes from outside there are two methods: (ref: https://minikube.sigs.k8s.io/docs/handbook/accessing/#create-a-kubernetes-service-type-loadbalancer)
+    loadbalancer (standard)
+    nodePort
+
+for using loadbalancer method:
+    - create a "minikube tunnel" to expose to public
+    - in service.yml define spec.type:LoadBalancer
+
+Get IP of minikube:
+    minikube ip  
+
+In case url contains subresource param:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    - path: /something(/|$)(.*) # we'll be able to access /something/subresourcename after this
+
+
+Get list of kubernetes services:
+kubectl get svc
+NAME                TYPE           CLUSTER-IP       EXTERNAL-IP      PORT(S)        AGE
+kubernetes          ClusterIP      10.96.0.1        <none>           443/TCP        30d
+pythonapp-service   LoadBalancer   10.104.117.211   10.104.117.211   80:30356/TCP   13m
+
+
+
+kubernetes concepts:
+    
+
+
+

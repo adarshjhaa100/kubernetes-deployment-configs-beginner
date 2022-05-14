@@ -1,0 +1,6 @@
+Steps to deploy a container to kubernetes and expose it to public(* This could mean to your vnet from kubernetes):
+- make sure that spec.template.container.spec.image is a valid docker image.
+- configure other options in deployment such as securityContext, volumes etc. 
+
+
+
