@@ -5,7 +5,7 @@ metadata:
   labels:
     app: pythonapp
 spec:
-  replicas: 5
+  replicas: 3
   selector:
     matchLabels:
       app: pythonapp
@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: pythonapp
-        image: python-nodename:v1
+        image: pythonimages/python-simple-httpserver:v1
         ports:
         - containerPort: 8081
