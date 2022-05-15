@@ -14,7 +14,7 @@ Push to minikube docker
 
 
 To access nodes from outside there are two methods: (ref: https://minikube.sigs.k8s.io/docs/handbook/accessing/#create-a-kubernetes-service-type-loadbalancer)
-    loadbalancer (standard)
+    loadbalancer (standard) (either convert service to lb or configure ingress)
     nodePort
 
 for using loadbalancer method:
@@ -24,9 +24,15 @@ for using loadbalancer method:
 Get IP of minikube:
     minikube ip  
 
+
+Setting up ingress using kubernetes (in minikube):
+    minikube addons enable ingress
+    run minikube tunnel
+
 In case url contains subresource param:
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     - path: /something(/|$)(.*) # we'll be able to access /something/subresourcename after this
+
 
 
 Get list of kubernetes services:
