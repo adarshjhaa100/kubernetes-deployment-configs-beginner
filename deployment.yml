@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: pythonapp
-        image: pythonimages/python-simple-httpserver:v1
+        image: pythonimages/python-simple-httpserver:v2
         ports:
         - containerPort: 8081

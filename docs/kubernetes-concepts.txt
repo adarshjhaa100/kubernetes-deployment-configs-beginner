@@ -42,6 +42,9 @@ kubernetes          ClusterIP      10.96.0.1        <none>           443/TCP    
 pythonapp-service   LoadBalancer   10.104.117.211   10.104.117.211   80:30356/TCP   13m
 
 
+get yaml file for resource:
+ kubectl get -o yaml res-type res-name
+
 
 kubernetes concepts:
     
